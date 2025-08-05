@@ -1,0 +1,94 @@
+=============AUTOR:==========
+
+Renan Ryu Kajihara, númeroUSP:14605762, e-mail:renankajihara@usp.br
+
+
+===========DESCRIÇÃO:========
+
+Este projeto tem como objetivo produzir dois programas, sendo um deles em Python e o outro em assembly, que, a partir de uma string de no máximo 100000 caracteres, produza um hash de 32 caracteres. 
+
+
+======COMO GERAR O EXECUTÁVEL:=====
+
+Para gerar o executável do código em Assembly, serão necessários apenas de 2 comandos no terminal. Tais comandos são:
+
+1) Para gerar o código objeto:
+nasm -f elf64 EP1.s -o EP1.o
+
+2) Para gerar o código de máquina executável:
+ld -s -o EP1 EP1.o
+
+
+=========COMO EXECUTAR:========
+
+Para rodar o código em Assembly, é necessário, primeiramente, que seja gerado o código de máquina executável por meio dos dois comandos descritos anteriormentes. Após gerar o executável, pode-se executá-lo das seguintes formas, utilizando tais comandos no terminal:
+
+1) Passando argumentos por meio da linha de comando:
+
+./EP1
+# string de entrada
+
+2) Passando argumentos por meio de um arquivo.txt que contém a entrada:
+
+./EP1 < arquivo.txt
+
+O código em Python, assim como o código em Assembly, pode receber os argumentos por meio da linha de comando e por um arquivo.txt, com os seguintes comandos:
+
+1) Passando argumentos por meio da linha de comando:
+
+python3 EP1.py
+# string de entrada
+
+2) Passando argumentos por meio de um arquivo.txt que contém a entrada:
+
+python3 EP1.py < arquivo.txt
+
+Tanto o código em Python quanto o código em Assembly, escreverão o hash (saída) correspondente à entrada logo após o usuário indicar qual a string de entrada.
+
+
+========TESTES:============
+
+Nesse bloco serão mostrados exemplos de entradas e as saídas esperadas correspondentes.
+
+entrada1:
+Eu sou seu pai!
+
+saída1:
+7599d088e2b5b0cb1497123787d33a65
+
+entrada2:
+Hello world!
+
+saída2:
+0927c72101c5ec3b9ec0922457f9ed83
+
+entrada3:
+bhfdshcsavghsduiwfhipwdquidvyudhodhjdwyugdqoihdwqigwdui	fdwiuhiefgu
+
+saída3:
+478408c98eb2f9f5ff211e6b433bdcc2
+
+entrada4:
+oiddyegyuegowgiufwgyfguwefhweuog
+
+saída4:
+f71e81ff553807a564817cee400dccb0
+
+entrada5:
+oi tudo bem?
+
+saída5:
+313e7306df53c7f755ed805848c31727
+ 
+ 
+=========DEPENDÊNCIAS:=========
+
+Para rodar os programas, é necessário que:
+- o montador Netwide Assembler (NASM) esteja na versão 2.16.01;
+- o linker esteja na versão 2.34;
+- o interpretador Python esteja na versão 3.8.10;
+
+Ambos os códigos foram testados em um Sistema Operacional com as seguintes especificações:
+- Nome e versão: Ubuntu versão 20.04.4 LTS
+- arquitetura de hardware: x86_64
+- Kernel: Linux

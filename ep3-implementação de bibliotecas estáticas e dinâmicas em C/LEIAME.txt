@@ -1,0 +1,53 @@
+=================AUTOR:==================
+
+Nome: Renan Ryu Kajihara
+número USP: 14605762
+email: renankajihara@usp.br
+
+================DESCRIÇÃO:===============
+
+Nesse diretório, existem 4 programas, sendo eles os arquivos hashliza.c, shannon.c, testa.c e compila.sh.
+
+O arquivo hashliza.c possui 5 funções que, ao receber uma String de tamanho arbitrário e um vetor de 256 inteiros de 0 a 255, sem repetição, devolve um hash de 32 caracteres. Além disso, 
+tal arquivo possui uma função chamada "ep3CriaVetorMagico" que a partir de um número inteiro, produz um vetor de 256 inteiros de 0 a 255, em ordem pseudo-aleatória, sem repetição.
+
+O arquivo shannon.c, possui uma função chamada "ep3CalculaEntropiaShannon" que, dada uma String de tamanho arbitrário, devolve um inteiro correspondente à entropia de Shannon dessa String.
+O cálculo da entropia de Shannon é baseado no vídeo de link: https://www.youtube.com/watch?v=maJ0oG-JzGw, disponível no Youtube.
+
+O arquivo testa.c possui uma função main() que verifica a execução das funções disponibilizadas pelos arquivos hashliza.c e shannon.c.
+
+O arquivo compila.sh é responsável pela: criação da biblioteca dinâmica libshannon.so, criada a partir dos arquivos shannon.c (implementação) e shannon.h (interface); 
+criação da biblioteca estática libhashliza.a, criada a partir dos arquivos hashliza.c (implementação) e hashliza.h (interface); compilação do programa de teste testa.c, que 
+utiliza as bibliotecas libshannon.so e libhashliza.a; e pela execução do doxygen, que gera a documentação das bibliotecas. 
+ 
+==============COMO EXECUTAR:===============
+
+Para compilar as bibliotecas e utilizá-las no programa de teste, basta executar o arquivo compila.sh, por meio do comando:
+./compila.sh
+
+Para executar o programa de teste, já compilado pelo programa compila.sh, basta rodar o seguinte comando no terminal:
+./testa
+
+===============TESTES:======================
+
+O programa testa.c é um programa responsável por testar as funções das bibliotecas libshannon.so e libhashliza.a.
+Para isso, o programa é divido em 3 partes:
+
+1) A primeira parte é responsável por testar as funções responsáveis pela criação do hash, com a utilização de um VetorMágico fixo (o VetorMágico presente no EP1).
+Nessa parte, há 5 Strings de teste, que serão submetidas às funções até a produção do hash. Por fim, será impresso na saída padrão o hash produzido pela String e 
+se tal hash era o esperado dada tal String.
+
+2) A segunda parte é responsável por testar a função "ep3CriaVetorMagico". Nessa parte, há 3 seeds de teste,que serão submetidas à função "ep3CriaVetorMagico". Por fim, será impresso
+na saída padrão o vetor produzido por determina seed, se há ou não repetição de valores no vetor, se todos os valores do vetor estão entre 0 e 255 e se o vetor de saída era o esperado 
+dado tal seed.
+
+3) A terceira parte é responsável por testar a função "ep3CalculaEntropiaShannon". Nessa parte, há 5 casos de teste, que dependem da String e da base do logaritmo. Por fim, será impresso 
+na saída padrão a String de entrada, a entropia de Shannon dada tal base e se a entropia de Shannon possui o valor esperado.
+
+==============DEPENDÊNCIAS:=================
+Para rodar o compila.sh, é necessário que a máquina que irá executá-lo possua o Bash como shell padrão do Sistema Operacional da máquina.
+Para rodar os programas escritos em C, é necessário que a máquina que irá executá-lo possua um compilador C instalado em seu sistema, como o GCC (GNU Compiler Collection), por exemplo.
+
+Os programas foram testados com sucesso em um computador que possui: Sistema Operacional Ubuntu 20.04.4 LTS; Kernel Linux 5.14.0-1059-oem;Arquitetura x86-64; memória de 15,4 GB;
+processador Intel Core i7; GNU bash, versão 5.0.17; gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0.
+
